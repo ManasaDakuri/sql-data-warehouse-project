@@ -69,31 +69,52 @@ These insights help stakeholders make informed business decisions.
 
 ## Repository Structure
 
-```text
-data-warehouse-project/
+ ```text
+sql-data-warehouse-project/
 │
-├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
+├── datasets/                           # Source ERP and CRM datasets (CSV files)
+│   ├── CUST_AZ12.csv                   # ERP customer data
+│   ├── LOC_A101.csv                    # ERP location data
+│   ├── PX_CAT_G1V2.csv                 # ERP product category data
+│   ├── cust_info.csv                   # CRM customer information
+│   ├── prd_info.csv                    # CRM product information
+│   ├── sales_details.csv               # CRM sales transactions
+│   └── placeholder                     # Placeholder file to preserve folder structure
 │
-├── docs/                               # Project documentation and architecture details
-│   ├── etl.drawio                      # ETL techniques and methods
-│   ├── data_architecture.drawio        # Data warehouse architecture
+├── docs/                               # Project documentation and architecture diagrams
+│   ├── Architecture Diagram.png        # Medallion architecture diagram
+│   ├── DataFlowDiagram.png             # Data flow diagram
+│   ├── GoldLayer_Relations.png         # Star schema relationships
+│   ├── Integration_model.png           # Data integration model
 │   ├── data_catalog.md                 # Dataset metadata and field descriptions
-│   ├── data_flow.drawio                # Data flow diagram
-│   ├── data_models.drawio              # Star schema and data models
-│   ├── naming-conventions.md           # Naming standards for tables and columns
+│   ├── naming_conventions.md           # Naming standards
+│   └── placeholder                     # Placeholder file
 │
 ├── scripts/                            # SQL scripts for ETL and transformations
-│   ├── bronze/                         # Raw data loading scripts
-│   ├── silver/                         # Data cleansing and transformation scripts
-│   ├── gold/                           # Analytical model creation scripts
+│   ├── bronze/
+│   │   ├── ddl_bronze.sql              # Bronze layer table creation
+│   │   └── proc_load_bronze.sql        # Bronze layer loading procedure
+│   │
+│   ├── silver/
+│   │   ├── ddl_silver.sql              # Silver layer table creation
+│   │   ├── proc_load_silver.sql        # Silver layer transformation procedure
+│   │   └── placeholder
+│   │
+│   ├── gold/
+│   │   └── ddl_gold.sql                # Gold layer views and star schema
+│   │
+│   ├── init_database.sql              # Database and schema initialization
+│   └── placeholder
 │
-├── tests/                              # Data quality and validation scripts
+├── tests/                              # Data quality validation scripts
+│   ├── quality_checks_gold.sql
+│   ├── quality_checks_silver.sql
+│   └── placeholder
 │
 ├── README.md
-├── LICENSE
-├── .gitignore
-└── requirements.txt
+└── LICENSE
 ```
+
 
 ---
 
